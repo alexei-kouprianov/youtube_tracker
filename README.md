@@ -17,3 +17,4 @@ The script `scripts/yt_plotter.r` reads data from `data/youtube.txt` and `downlo
 ![Views time-series plot](plots/youtube.2020-12-XX.COUNTS.png "Views time-series plot")
 ![Likes time-series plot](plots/youtube.2020-12-XX.LIKES.png "Likes time-series plot")
 ![Views vs Likes scatter plot](plots/youtube.2020-12-XX.scatter.COUNTS_LIKES.png "Views vs Likes scatter plot")
+![Likes vs Disikes scatter plot](plots/youtube.2020-12-XX.scatter.LIKES_DISLIKES.png "Views vs Likes scatter plot")

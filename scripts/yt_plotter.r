@@ -23,7 +23,8 @@ axis.1.at <- seq(
 	by = "day")
 
 ################################################################
-# Control plot
+# Time series plots
+################################################################
 
 png("../plots/youtube.2020-12-XX.COUNTS.png", height=750, width=750)
 par(mar=c(8,5,5,2)+.1)
@@ -249,7 +250,7 @@ axis(2, at=(0:axis.base.likes)*2*100000, labels=c(0, paste((1:axis.base.likes)*2
 dev.off()
 
 ################################################################
-# Scatter plot
+# Scatter plots
 ################################################################
 
 png("../plots/youtube.2020-12-XX.scatter.COUNTS_LIKES.png", height=750, width=750)
@@ -352,6 +353,111 @@ legend(
 
 axis(1, at=(0:axis.base.counts)*2*1000000, labels=c(0, paste((1:axis.base.counts)*2, "M", sep="")))
 axis(2, at=(0:axis.base.likes)*2*100000, labels=c(0, paste((1:axis.base.likes)*2, "00K", sep="")))
+
+dev.off()
+
+png("../plots/youtube.2020-12-XX.scatter.LIKES_DISLIKES.png", height=750, width=750)
+par(mar=c(8,5,5,2)+.1)
+
+plot(
+	yt.ls[[1]]$LIKES,
+	yt.ls[[1]]$DISLIKES,
+	xlim=c(0, max(yt$LIKES, na.rm=TRUE)),
+	ylim=c(0, max(yt$DISLIKES, na.rm=TRUE)),
+	main="Alexei Navalny channel movies:\nA comparison of impact",
+	xlab="Likes", ylab="Dislikes",
+	type="n", axes=FALSE)
+
+axis.base.dislikes <- ceiling(max(yt$DISLIKES, na.rm=TRUE)/(1e4))
+
+abline(v=(0:axis.base.likes)*2*100000, h=(0:axis.base.dislikes)*10000, col=rgb(0,0,0,.3), lty=3)
+
+points(
+	yt.ls[[1]]$LIKES,
+	yt.ls[[1]]$DISLIKES,
+	pch=20, cex=.5, col=rgb(0,0,0,.3))
+
+points(
+	yt.ls[[2]]$LIKES,
+	yt.ls[[2]]$DISLIKES,
+	pch=20, cex=.5, col=rgb(0,0,1,.3))
+
+points(
+	yt.ls[[7]]$LIKES,
+	yt.ls[[7]]$DISLIKES,
+	pch=20, cex=.5, col=rgb(1,0,0,.3))
+
+points(
+	yt.ls[[6]]$LIKES,
+	yt.ls[[6]]$DISLIKES,
+	pch=20, cex=.5, col=rgb(0,1,0,.3))
+
+points(
+	yt.ls[[4]]$LIKES,
+	yt.ls[[4]]$DISLIKES,
+	pch=20, cex=.5, col=rgb(.5,0,0,.3))
+
+points(
+	yt.ls[[3]]$LIKES,
+	yt.ls[[3]]$DISLIKES,
+	pch=20, cex=.5, col=rgb(1,.8,.2,.3))
+
+points(
+	yt.ls[[5]]$LIKES,
+	yt.ls[[5]]$DISLIKES,
+	type="o", pch=20, cex=.5, col=rgb(1,0,1,.3))
+
+legend(
+	"bottomright",
+	bty="o",
+	box.lty = 0,
+	bg = rgb(1,1,1,.3),
+	pch=16,
+	cex=1,
+	col=rgb(
+		c(0,0,1,0,1,.5,1),
+		c(0,0,0,1,.8,0,0),
+		c(0,1,0,0,.2,0,1),
+		c(.5,.5,.5,.5,.5,.5,.5)),
+
+# levels(yt$TITLE)
+# [1] "Дело раскрыто. Я знаю всех, кто пытался меня убить"
+# [2] "Я позвонил своему убийце. Он признался"
+# [3] "«У них нет моральной границы»: расследователь Христо Грозев об отравлении Алексея Навального"
+# [4] "Дворец для Путина. История самой большой взятки"
+# [5] "Президент Навальный: как он ослабит Москву, заставит платить миллиардеров и кому поднимет зарплаты"
+# [6] "Уголовное дело против Любови Соболь. Первый комментарий после освобождения"
+
+	legend=paste(
+		c("I know who wanted to kill me (",
+		"I've called my assassin (",
+		"A criminal case against Sobol' (",
+		"Guriev interviews Navalny (",
+		"Grozev: They know no moral limits (",
+		"Putin's palace (",
+		"Don't call him Dimon ("),
+		c(round(yt.ls[[1]]$DISLIKES[nrow(yt.ls[[1]])]/1e3, 1),
+		round(yt.ls[[2]]$DISLIKES[nrow(yt.ls[[2]])]/1e3, 1),
+		round(yt.ls[[7]]$DISLIKES[nrow(yt.ls[[7]])]/1e3, 1),
+		round(yt.ls[[6]]$DISLIKES[nrow(yt.ls[[6]])]/1e3, 1),
+		round(yt.ls[[3]]$DISLIKES[nrow(yt.ls[[3]])]/1e3, 1),
+		round(yt.ls[[4]]$DISLIKES[nrow(yt.ls[[4]])]/1e3, 1),
+		round(yt.ls[[4]]$DISLIKES[nrow(yt.ls[[5]])]/1e3, 1)
+		),
+		rep(" / ", 7),
+		c(round(yt.ls[[1]]$LIKES[nrow(yt.ls[[1]])]/1e3, 1),
+		round(yt.ls[[2]]$LIKES[nrow(yt.ls[[2]])]/1e3, 1),
+		round(yt.ls[[7]]$LIKES[nrow(yt.ls[[7]])]/1e3, 1),
+		round(yt.ls[[6]]$LIKES[nrow(yt.ls[[6]])]/1e3, 1),
+		round(yt.ls[[3]]$LIKES[nrow(yt.ls[[3]])]/1e3, 1),
+		round(yt.ls[[4]]$LIKES[nrow(yt.ls[[4]])]/1e3, 1),
+		round(yt.ls[[5]]$LIKES[nrow(yt.ls[[5]])]/1e3, 1)
+		),
+		rep("K)", 7), sep="")
+	)
+
+axis(1, at=(0:axis.base.likes)*2*100000, labels=c(0, paste((1:axis.base.likes)*2, "00K", sep="")))
+axis(2, at=(0:axis.base.dislikes)*10000, labels=c(0, paste((1:axis.base.dislikes), "0K", sep="")))
 
 dev.off()
 
