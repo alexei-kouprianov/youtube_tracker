@@ -22,6 +22,10 @@ axis.1.at <- seq(
 	to = strptime("2021-01-31 00:00", "%Y-%m-%d %H:%M"),
 	by = "day")
 
+axis.base.counts <- ceiling(max(yt$COUNTS, na.rm=TRUE)/(2e6))
+axis.base.likes <- ceiling(max(yt$LIKES, na.rm=TRUE)/(2e5))
+axis.base.dislikes <- ceiling(max(yt$DISLIKES, na.rm=TRUE)/(1e4))
+
 ################################################################
 # Time series plots
 ################################################################
@@ -36,8 +40,6 @@ plot(
 	main="Alexei Navalny channel movies:\nA comparison of impact",
 	xlab="", ylab="Views",
 	type="n", axes=FALSE)
-
-axis.base.counts <- ceiling(max(yt$COUNTS, na.rm=TRUE)/(2e6))
 
 axis(2, at=(0:axis.base.counts)*2*1000000, labels=c(0, paste((1:axis.base.counts)*2, "М", sep="")))
 
@@ -146,6 +148,9 @@ legend(
 
 dev.off()
 
+################################################################
+# Likes
+
 png("../plots/youtube.2020-12-XX.LIKES.png", height=750, width=750)
 par(mar=c(8,5,5,2)+.1)
 
@@ -156,8 +161,6 @@ plot(
 	main="Alexei Navalny channel movies:\nA comparison of impact",
 	xlab="", ylab="Likes",
 	type="n", axes=FALSE)
-
-axis.base.likes <- ceiling(max(yt$LIKES, na.rm=TRUE)/(2e5))
 
 abline(h=(0:axis.base.likes)*2*100000,
 	v=seq(from = strptime("2020-12-14 12:00", format="%Y-%m-%d %H:%M"),
@@ -246,6 +249,104 @@ axis.POSIXct(1,
 	las = 2)
 
 axis(2, at=(0:axis.base.likes)*2*100000, labels=c(0, paste((1:axis.base.likes)*2, "00K", sep="")))
+
+dev.off()
+
+################################################################
+# Dislikes
+
+png("../plots/youtube.2020-12-XX.DISLIKES.png", height=750, width=750)
+par(mar=c(8,5,5,2)+.1)
+
+plot(
+	yt.ls[[1]]$TIME,
+	yt.ls[[1]]$DISLIKES,
+	ylim=c(0, max(yt$DISLIKES, na.rm=TRUE)),
+	main="Alexei Navalny channel movies:\nA comparison of impact",
+	xlab="", ylab="Disikes",
+	type="n", axes=FALSE)
+
+abline(h=(0:axis.base.dislikes)*10000,
+	v=seq(from = strptime("2020-12-14 12:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 12:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=3)
+abline(v=seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=5, lwd=1.5)
+
+points(
+	yt.ls[[1]]$TIME,
+	yt.ls[[1]]$DISLIKES,
+	type="o", pch=20, cex=.5, col=rgb(0,0,0,.3))
+
+points(
+	yt.ls[[2]]$TIME,
+	yt.ls[[2]]$DISLIKES,
+	type="o", pch=20, cex=.5, col=rgb(0,0,1,.3))
+
+points(
+	yt.ls[[7]]$TIME,
+	yt.ls[[7]]$DISLIKES,
+	type="o", pch=20, cex=.5, col=rgb(1,0,0,.3))
+
+points(
+	yt.ls[[3]]$TIME,
+	yt.ls[[3]]$DISLIKES,
+	type="o", pch=20, cex=.5, col=rgb(1,.8,.2,.3))
+
+points(
+	yt.ls[[6]]$TIME,
+	yt.ls[[6]]$DISLIKES,
+	type="o", pch=20, cex=.5, col=rgb(0,1,0,.3))
+
+points(
+	yt.ls[[4]]$TIME,
+	yt.ls[[4]]$DISLIKES,
+	type="o", pch=20, cex=.5, col=rgb(.5,0,0,.3))
+
+points(
+	yt.ls[[5]]$TIME,
+	yt.ls[[5]]$DISLIKES,
+	type="o", pch=20, cex=.5, col=rgb(1,0,1,.3))
+
+legend(
+	"bottomleft",
+	bty="o",
+	box.lty = 0,
+	bg = rgb(1,1,1,.3),
+	lty=1,
+	lwd=4,
+	col=rgb(
+		c(0,0,1,0,1,.5,1),
+		c(0,0,0,1,.8,0,0),
+		c(0,1,0,0,.2,0,1),
+		c(.5,.5,.5,.5,.5,.5,.5)),
+
+	legend=paste(
+		c("I know who wanted to kill me (",
+		"I've called my assassin (",
+		"A criminal case against Sobol' (",
+		"Guriev interviews Navalny (",
+		"Grozev: They know no moral limits (",
+		"Putin's palace (",
+		"Don't call him Dimon ("),
+		c(round(yt.ls[[1]]$DISLIKES[nrow(yt.ls[[1]])]/1e3, 1),
+		round(yt.ls[[2]]$DISLIKES[nrow(yt.ls[[2]])]/1e3, 1),
+		round(yt.ls[[7]]$DISLIKES[nrow(yt.ls[[7]])]/1e3, 1),
+		round(yt.ls[[6]]$DISLIKES[nrow(yt.ls[[6]])]/1e3, 1),
+		round(yt.ls[[3]]$DISLIKES[nrow(yt.ls[[3]])]/1e3, 1),
+		round(yt.ls[[4]]$DISLIKES[nrow(yt.ls[[4]])]/1e3, 1),
+		round(yt.ls[[5]]$DISLIKES[nrow(yt.ls[[5]])]/1e3, 1)
+		),
+		rep("K)", 7), sep="")
+	)
+
+axis.POSIXct(1,
+	at = axis.1.at,
+	format = "%Y-%m-%d %H:%M",
+	las = 2)
+
+axis(2, at=(0:axis.base.dislikes)*10000, labels=c(0, paste((1:axis.base.dislikes), "0K", sep="")))
 
 dev.off()
 
@@ -367,8 +468,6 @@ plot(
 	main="Alexei Navalny channel movies:\nA comparison of impact",
 	xlab="Likes", ylab="Dislikes",
 	type="n", axes=FALSE)
-
-axis.base.dislikes <- ceiling(max(yt$DISLIKES, na.rm=TRUE)/(1e4))
 
 abline(v=(0:axis.base.likes)*2*100000, h=(0:axis.base.dislikes)*10000, col=rgb(0,0,0,.3), lty=3)
 

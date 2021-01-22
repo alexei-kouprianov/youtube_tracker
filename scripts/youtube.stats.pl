@@ -72,8 +72,6 @@ open (TGT02, '>>../downloads/pages.processed.02.txt') or die $!;
 close SRC02;
 close TGT02;
 
-
-
 my @files_to_remove = qw/\.\.\/downloads\/pages.raw.txt \.\.\/downloads\/pages.processed.01.txt/;
 
 unlink @files_to_remove;
