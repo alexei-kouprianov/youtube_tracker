@@ -30,7 +30,7 @@ axis.base.dislikes <- ceiling(max(yt$DISLIKES, na.rm=TRUE)/(1e4))
 # Time series plots
 ################################################################
 
-png("../plots/youtube.2020-12-XX.COUNTS.png", height=750, width=750)
+png("../plots/youtube.01.ts.01.COUNTS.png", height=750, width=750)
 par(mar=c(8,5,5,2)+.1)
 
 plot(
@@ -151,7 +151,7 @@ dev.off()
 ################################################################
 # Likes
 
-png("../plots/youtube.2020-12-XX.LIKES.png", height=750, width=750)
+png("../plots/youtube.01.ts.02.LIKES.png", height=750, width=750)
 par(mar=c(8,5,5,2)+.1)
 
 plot(
@@ -255,7 +255,7 @@ dev.off()
 ################################################################
 # Dislikes
 
-png("../plots/youtube.2020-12-XX.DISLIKES.png", height=750, width=750)
+png("../plots/youtube.01.ts.03.DISLIKES.png", height=750, width=750)
 par(mar=c(8,5,5,2)+.1)
 
 plot(
@@ -354,7 +354,7 @@ dev.off()
 # Scatter plots
 ################################################################
 
-png("../plots/youtube.2020-12-XX.scatter.COUNTS_LIKES.png", height=750, width=750)
+png("../plots/youtube.02.scatter.01.COUNTS_LIKES.png", height=750, width=750)
 par(mar=c(8,5,5,2)+.1)
 
 plot(
@@ -457,7 +457,7 @@ axis(2, at=(0:axis.base.likes)*2*100000, labels=c(0, paste((1:axis.base.likes)*2
 
 dev.off()
 
-png("../plots/youtube.2020-12-XX.scatter.LIKES_DISLIKES.png", height=750, width=750)
+png("../plots/youtube.02.scatter.02.LIKES_DISLIKES.png", height=750, width=750)
 par(mar=c(8,5,5,2)+.1)
 
 plot(
@@ -557,6 +557,134 @@ legend(
 
 axis(1, at=(0:axis.base.likes)*2*100000, labels=c(0, paste((1:axis.base.likes)*2, "00K", sep="")))
 axis(2, at=(0:axis.base.dislikes)*10000, labels=c(0, paste((1:axis.base.dislikes), "0K", sep="")))
+
+dev.off()
+
+
+################################################################
+# Prime functions
+################################################################
+
+################################################################
+# Likes prime
+
+png("../plots/youtube.01.ts.04.COUNTS_PRIME.png", height=750, width=750)
+par(mar=c(8,4,3,2)+.1)
+plot(yt.ls[[4]]$TIME[2:nrow(yt.ls[[4]])], 
+yt.ls[[4]]$COUNTS[2:nrow(yt.ls[[4]])] - yt.ls[[4]]$COUNTS[1:(nrow(yt.ls[[4]])-1)], 
+type="h",
+main="Putin's palace / Views", 
+xlab="", 
+ylab="Views (per 15-min. intervals)", 
+axes=FALSE) 
+
+abline(v=seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=5)
+abline(v=seq(from = strptime("2020-12-14 06:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 06:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=3)
+abline(v=seq(from = strptime("2020-12-14 12:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 12:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=3)
+abline(v=seq(from = strptime("2020-12-14 18:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 18:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=3)
+
+axis.POSIXct(1,
+	at = axis.1.at,
+	format = "%Y-%m-%d %H:%M",
+	las = 2)
+axis.POSIXct(1,
+	at = seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	by = "hour"),
+	labels = FALSE,
+	tcl = -.25,
+	las = 2)
+axis(2)
+
+dev.off()
+
+################################################################
+# Likes prime
+
+png("../plots/youtube.01.ts.05.LIKES_PRIME.png", height=750, width=750)
+par(mar=c(8,4,3,2)+.1)
+plot(yt.ls[[4]]$TIME[2:nrow(yt.ls[[4]])], 
+yt.ls[[4]]$LIKES[2:nrow(yt.ls[[4]])] - yt.ls[[4]]$LIKES[1:(nrow(yt.ls[[4]])-1)], 
+type="h",
+main="Putin's palace / Likes", 
+xlab="", 
+ylab="Likes (per 15-min. intervals)", 
+axes=FALSE) 
+
+abline(v=seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=5)
+abline(v=seq(from = strptime("2020-12-14 06:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 06:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=3)
+abline(v=seq(from = strptime("2020-12-14 12:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 12:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=3)
+abline(v=seq(from = strptime("2020-12-14 18:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 18:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=3)
+
+axis.POSIXct(1,
+	at = axis.1.at,
+	format = "%Y-%m-%d %H:%M",
+	las = 2)
+axis.POSIXct(1,
+	at = seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	by = "hour"),
+	labels = FALSE,
+	tcl = -.25,
+	las = 2)
+axis(2)
+
+dev.off()
+
+################################################################
+# Dislikes prime
+
+png("../plots/youtube.01.ts.06.DISLIKES_PRIME.png", height=750, width=750)
+par(mar=c(8,4,3,2)+.1)
+plot(yt.ls[[4]]$TIME[2:nrow(yt.ls[[4]])], 
+yt.ls[[4]]$DISLIKES[2:nrow(yt.ls[[4]])] - yt.ls[[4]]$DISLIKES[1:(nrow(yt.ls[[4]])-1)], 
+type="h", 
+main="Putin's palace / Dislikes", 
+xlab="", 
+ylab="Dislikes (per 15-min. intervals)", 
+axes=FALSE) 
+
+abline(v=seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=5)
+abline(v=seq(from = strptime("2020-12-14 06:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 06:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=3)
+abline(v=seq(from = strptime("2020-12-14 12:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 12:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=3)
+abline(v=seq(from = strptime("2020-12-14 18:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 18:00", format="%Y-%m-%d %H:%M"),
+	by = "day"), col=8, lty=3)
+
+axis.POSIXct(1,
+	at = axis.1.at,
+	format = "%Y-%m-%d %H:%M",
+	las = 2)
+axis.POSIXct(1,
+	at = seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	by = "hour"),
+	labels = FALSE,
+	tcl = -.25,
+	las = 2)
+axis(2)
 
 dev.off()
 
