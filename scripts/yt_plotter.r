@@ -41,7 +41,7 @@ plot(
 	xlab="", ylab="Views",
 	type="n", axes=FALSE)
 
-axis(2, at=(0:axis.base.counts)*2*1000000, labels=c(0, paste((1:axis.base.counts)*2, "М", sep="")))
+axis(2, at=(0:axis.base.counts)*5*1000000, labels=c(0, paste((1:axis.base.counts)*5, "М", sep="")))
 
 # axis.POSIXct(1,
 # 	at = seq(
@@ -56,7 +56,7 @@ axis.POSIXct(1,
 	format = "%Y-%m-%d %H:%M",
 	las = 2)
 
-abline(h=(0:axis.base.counts)*2*1000000,
+abline(h=(0:axis.base.counts)*5*1000000,
 	v=seq(from = strptime("2020-12-14 12:00", format="%Y-%m-%d %H:%M"),
 	to = strptime("2021-01-31 12:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=3)
@@ -366,7 +366,7 @@ plot(
 	xlab="Counts", ylab="Likes",
 	type="n", axes=FALSE)
 
-abline(h=(0:axis.base.likes)*2*100000, v=(0:axis.base.counts)*2*1000000, col=rgb(0,0,0,.3), lty=3)
+abline(h=(0:axis.base.likes)*2*100000, v=(0:axis.base.counts)*5*1000000, col=rgb(0,0,0,.3), lty=3)
 
 points(
 	yt.ls[[1]]$COUNTS,
@@ -452,7 +452,7 @@ legend(
 		rep("M)", 7), sep="")
 	)
 
-axis(1, at=(0:axis.base.counts)*2*1000000, labels=c(0, paste((1:axis.base.counts)*2, "M", sep="")))
+axis(1, at=(0:axis.base.counts)*5*1000000, labels=c(0, paste((1:axis.base.counts)*5, "M", sep="")))
 axis(2, at=(0:axis.base.likes)*2*100000, labels=c(0, paste((1:axis.base.likes)*2, "00K", sep="")))
 
 dev.off()
