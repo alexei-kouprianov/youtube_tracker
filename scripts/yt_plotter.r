@@ -37,7 +37,7 @@ plot(
 	yt.ls[[1]]$TIME,
 	yt.ls[[1]]$COUNTS,
 	ylim=c(0, max(yt$COUNTS)),
-	main="Alexei Navalny channel movies:\nA comparison of impact",
+	main=paste("Alexei Navalny channel movies: A comparison of impact\n", tail(yt$TIME, 1), sep=""),
 	xlab="", ylab="Views",
 	type="n", axes=FALSE)
 
@@ -158,7 +158,7 @@ plot(
 	yt.ls[[1]]$TIME,
 	yt.ls[[1]]$LIKES,
 	ylim=c(0, max(yt$LIKES, na.rm=TRUE)),
-	main="Alexei Navalny channel movies:\nA comparison of impact",
+	main=paste("Alexei Navalny channel movies:\nA comparison of impact\n", tail(yt$TIME, 1), sep=""),
 	xlab="", ylab="Likes",
 	type="n", axes=FALSE)
 
@@ -262,7 +262,7 @@ plot(
 	yt.ls[[1]]$TIME,
 	yt.ls[[1]]$DISLIKES,
 	ylim=c(0, max(yt$DISLIKES, na.rm=TRUE)),
-	main="Alexei Navalny channel movies:\nA comparison of impact",
+	main=paste("Alexei Navalny channel movies:\nA comparison of impact\n", tail(yt$TIME, 1), sep=""),
 	xlab="", ylab="Disikes",
 	type="n", axes=FALSE)
 
@@ -362,7 +362,7 @@ plot(
 	yt.ls[[1]]$LIKES,
 	xlim=c(0, max(yt$COUNTS, na.rm=TRUE)),
 	ylim=c(0, max(yt$LIKES, na.rm=TRUE)),
-	main="Alexei Navalny channel movies:\nA comparison of impact",
+	main=paste("Alexei Navalny channel movies:\nA comparison of impact\n", tail(yt$TIME, 1), sep=""),
 	xlab="Counts", ylab="Likes",
 	type="n", axes=FALSE)
 
@@ -465,7 +465,7 @@ plot(
 	yt.ls[[1]]$DISLIKES,
 	xlim=c(0, max(yt$LIKES, na.rm=TRUE)),
 	ylim=c(0, max(yt$DISLIKES, na.rm=TRUE)),
-	main="Alexei Navalny channel movies:\nA comparison of impact",
+	main=paste("Alexei Navalny channel movies: A comparison of impact\n", tail(yt$TIME, 1), sep=""),
 	xlab="Likes", ylab="Dislikes",
 	type="n", axes=FALSE)
 
@@ -573,7 +573,7 @@ par(mar=c(8,4,3,2)+.1)
 plot(yt.ls[[4]]$TIME[2:nrow(yt.ls[[4]])], 
 yt.ls[[4]]$COUNTS[2:nrow(yt.ls[[4]])] - yt.ls[[4]]$COUNTS[1:(nrow(yt.ls[[4]])-1)], 
 type="h",
-main="Putin's palace / Views", 
+main=paste("Putin's palace / Views\n", tail(yt$TIME, 1), sep=""), 
 xlab="", 
 ylab="Views (per 15-min. intervals)", 
 axes=FALSE) 
@@ -614,7 +614,7 @@ par(mar=c(8,4,3,2)+.1)
 plot(yt.ls[[4]]$TIME[2:nrow(yt.ls[[4]])], 
 yt.ls[[4]]$LIKES[2:nrow(yt.ls[[4]])] - yt.ls[[4]]$LIKES[1:(nrow(yt.ls[[4]])-1)], 
 type="h",
-main="Putin's palace / Likes", 
+main=paste("Putin's palace / Likes\n", tail(yt$TIME, 1), sep=""), 
 xlab="", 
 ylab="Likes (per 15-min. intervals)", 
 axes=FALSE) 
@@ -655,7 +655,7 @@ par(mar=c(8,4,3,2)+.1)
 plot(yt.ls[[4]]$TIME[2:nrow(yt.ls[[4]])], 
 yt.ls[[4]]$DISLIKES[2:nrow(yt.ls[[4]])] - yt.ls[[4]]$DISLIKES[1:(nrow(yt.ls[[4]])-1)], 
 type="h", 
-main="Putin's palace / Dislikes", 
+main=paste("Putin's palace / Dislikes\n", tail(yt$TIME, 1), sep=""), 
 xlab="", 
 ylab="Dislikes (per 15-min. intervals)", 
 axes=FALSE) 
