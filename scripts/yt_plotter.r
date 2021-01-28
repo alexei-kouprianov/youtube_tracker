@@ -36,7 +36,7 @@ par(mar=c(8,5,5,2)+.1)
 plot(
 	yt.ls[[1]]$TIME,
 	yt.ls[[1]]$COUNTS,
-	ylim=c(0, max(yt$COUNTS)),
+	ylim=c(0, max(yt$COUNTS, na.rm = TRUE)),
 	main=paste("Alexei Navalny channel movies: A comparison of impact\n", tail(yt$TIME, 1), sep=""),
 	xlab="", ylab="Views",
 	type="n", axes=FALSE)
