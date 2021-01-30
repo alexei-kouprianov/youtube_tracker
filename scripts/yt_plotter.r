@@ -81,8 +81,8 @@ points(
 	type="o", pch=20, cex=.5, col=rgb(0,0,1,.3))
 
 points(
-	yt.ls[[10]]$TIME,
-	yt.ls[[10]]$COUNTS,
+	yt.ls[[11]]$TIME,
+	yt.ls[[11]]$COUNTS,
 	type="o", pch=20, cex=.5, col=rgb(1,0,0,.3))
 
 points(
@@ -139,6 +139,20 @@ legend(
 # [10] "Уголовное дело против Любови Соболь. Первый комментарий после освобождения"                        
 # [11] "Фонтан - Смешарики 2D | Новый сезон | ПРЕМЬЕРА 2020! + БОНУС ПЕСНЯ" 
 
+# > levels(yt$TITLE)
+#  [1] "Дело раскрыто. Я знаю всех, кто пытался меня убить"                                                
+#  [2] "Я позвонил своему убийце. Он признался"                                                            
+#  [3] "«У них нет моральной границы»: расследователь Христо Грозев об отравлении Алексея Навального"      
+#  [4] "MORGENSHTERN - Cristal &amp; МОЁТ (Клип + итоги 2020 года)"                                        
+#  [5] "Дворец для Путина. История самой большой взятки"                                                   
+#  [6] "Маша  и Медведь - 💥 НОВАЯ СЕРИЯ! 🌷 Первая ласточка 🐧 Коллекция мультиков"                          
+#  [7] "Невзоров. Наповал № 32.  23 января.Навальный, митинги, протесты. Когда, как и что  будет дальше."  
+#  [8] "Он вам не Димон"                                                                                   
+#  [9] "Президент Навальный: как он ослабит Москву, заставит платить миллиардеров и кому поднимет зарплаты"
+# [10] "Сказочный дворец: первая экскурсия по дворцу в Геленджике"                                         
+# [11] "Уголовное дело против Любови Соболь. Первый комментарий после освобождения"                        
+# [12] "Фонтан - Смешарики 2D | Новый сезон | ПРЕМЬЕРА 2020! + БОНУС ПЕСНЯ" 
+
 	legend=paste(
 		c("I know who wanted to kill me (",
 		"I've called my assassin (",
@@ -149,7 +163,7 @@ legend(
 		"Don't call him Dimon ("),
 		c(round(yt.ls[[1]]$COUNTS[nrow(yt.ls[[1]])]/1e6, 3),
 		round(yt.ls[[2]]$COUNTS[nrow(yt.ls[[2]])]/1e6, 3),
-		round(yt.ls[[10]]$COUNTS[nrow(yt.ls[[10]])]/1e6, 3),
+		round(yt.ls[[11]]$COUNTS[nrow(yt.ls[[11]])]/1e6, 3),
 		round(yt.ls[[9]]$COUNTS[nrow(yt.ls[[9]])]/1e6, 3),
 		round(yt.ls[[3]]$COUNTS[nrow(yt.ls[[3]])]/1e6, 3),
 		round(yt.ls[[5]]$COUNTS[nrow(yt.ls[[5]])]/1e6, 3),
@@ -199,8 +213,8 @@ points(
 	type="o", pch=20, cex=.5, col=rgb(0,0,1,.3))
 
 points(
-	yt.ls[[10]]$TIME,
-	yt.ls[[10]]$LIKES,
+	yt.ls[[11]]$TIME,
+	yt.ls[[11]]$LIKES,
 	type="o", pch=20, cex=.5, col=rgb(1,0,0,.3))
 
 points(
@@ -246,7 +260,7 @@ legend(
 		"Don't call him Dimon ("),
 		c(round(yt.ls[[1]]$LIKES[nrow(yt.ls[[1]])]/1e6, 3),
 		round(yt.ls[[2]]$LIKES[nrow(yt.ls[[2]])]/1e6, 3),
-		round(yt.ls[[10]]$LIKES[nrow(yt.ls[[10]])]/1e6, 3),
+		round(yt.ls[[11]]$LIKES[nrow(yt.ls[[11]])]/1e6, 3),
 		round(yt.ls[[9]]$LIKES[nrow(yt.ls[[9]])]/1e6, 3),
 		round(yt.ls[[3]]$LIKES[nrow(yt.ls[[3]])]/1e6, 3),
 		round(yt.ls[[5]]$LIKES[nrow(yt.ls[[5]])]/1e6, 3),
@@ -297,8 +311,8 @@ points(
 	type="o", pch=20, cex=.5, col=rgb(0,0,1,.3))
 
 points(
-	yt.ls[[10]]$TIME,
-	yt.ls[[10]]$DISLIKES,
+	yt.ls[[11]]$TIME,
+	yt.ls[[11]]$DISLIKES,
 	type="o", pch=20, cex=.5, col=rgb(1,0,0,.3))
 
 points(
@@ -344,7 +358,7 @@ legend(
 		"Don't call him Dimon ("),
 		c(round(yt.ls[[1]]$DISLIKES[nrow(yt.ls[[1]])]/1e3, 1),
 		round(yt.ls[[2]]$DISLIKES[nrow(yt.ls[[2]])]/1e3, 1),
-		round(yt.ls[[10]]$DISLIKES[nrow(yt.ls[[10]])]/1e3, 1),
+		round(yt.ls[[11]]$DISLIKES[nrow(yt.ls[[11]])]/1e3, 1),
 		round(yt.ls[[9]]$DISLIKES[nrow(yt.ls[[9]])]/1e3, 1),
 		round(yt.ls[[3]]$DISLIKES[nrow(yt.ls[[3]])]/1e3, 1),
 		round(yt.ls[[5]]$DISLIKES[nrow(yt.ls[[5]])]/1e3, 1),
@@ -391,8 +405,8 @@ points(
 	pch=20, cex=.5, col=rgb(0,0,1,.3))
 
 points(
-	yt.ls[[10]]$COUNTS,
-	yt.ls[[10]]$LIKES,
+	yt.ls[[11]]$COUNTS,
+	yt.ls[[11]]$LIKES,
 	pch=20, cex=.5, col=rgb(1,0,0,.3))
 
 points(
@@ -446,7 +460,7 @@ legend(
 		"Don't call him Dimon ("),
 		c(round(yt.ls[[1]]$COUNTS[nrow(yt.ls[[1]])]/1e6, 3),
 		round(yt.ls[[2]]$COUNTS[nrow(yt.ls[[2]])]/1e6, 3),
-		round(yt.ls[[10]]$COUNTS[nrow(yt.ls[[10]])]/1e6, 3),
+		round(yt.ls[[11]]$COUNTS[nrow(yt.ls[[11]])]/1e6, 3),
 		round(yt.ls[[9]]$COUNTS[nrow(yt.ls[[9]])]/1e6, 3),
 		round(yt.ls[[3]]$COUNTS[nrow(yt.ls[[3]])]/1e6, 3),
 		round(yt.ls[[5]]$COUNTS[nrow(yt.ls[[5]])]/1e6, 3),
@@ -455,7 +469,7 @@ legend(
 		rep(" / ", 7),
 		c(round(yt.ls[[1]]$LIKES[nrow(yt.ls[[1]])]/1e6, 3),
 		round(yt.ls[[2]]$LIKES[nrow(yt.ls[[2]])]/1e6, 3),
-		round(yt.ls[[10]]$LIKES[nrow(yt.ls[[10]])]/1e6, 3),
+		round(yt.ls[[11]]$LIKES[nrow(yt.ls[[11]])]/1e6, 3),
 		round(yt.ls[[9]]$LIKES[nrow(yt.ls[[9]])]/1e6, 3),
 		round(yt.ls[[3]]$LIKES[nrow(yt.ls[[3]])]/1e6, 3),
 		round(yt.ls[[5]]$LIKES[nrow(yt.ls[[5]])]/1e6, 3),
@@ -494,8 +508,8 @@ points(
 	pch=20, cex=.5, col=rgb(0,0,1,.3))
 
 points(
-	yt.ls[[10]]$LIKES,
-	yt.ls[[10]]$DISLIKES,
+	yt.ls[[11]]$LIKES,
+	yt.ls[[11]]$DISLIKES,
 	pch=20, cex=.5, col=rgb(1,0,0,.3))
 
 points(
@@ -549,7 +563,7 @@ legend(
 		"Don't call him Dimon ("),
 		c(round(yt.ls[[1]]$DISLIKES[nrow(yt.ls[[1]])]/1e3, 1),
 		round(yt.ls[[2]]$DISLIKES[nrow(yt.ls[[2]])]/1e3, 1),
-		round(yt.ls[[10]]$DISLIKES[nrow(yt.ls[[10]])]/1e3, 1),
+		round(yt.ls[[11]]$DISLIKES[nrow(yt.ls[[11]])]/1e3, 1),
 		round(yt.ls[[9]]$DISLIKES[nrow(yt.ls[[9]])]/1e3, 1),
 		round(yt.ls[[3]]$DISLIKES[nrow(yt.ls[[3]])]/1e3, 1),
 		round(yt.ls[[5]]$DISLIKES[nrow(yt.ls[[5]])]/1e3, 1),
@@ -558,7 +572,7 @@ legend(
 		rep(" / ", 7),
 		c(round(yt.ls[[1]]$LIKES[nrow(yt.ls[[1]])]/1e3, 1),
 		round(yt.ls[[2]]$LIKES[nrow(yt.ls[[2]])]/1e3, 1),
-		round(yt.ls[[10]]$LIKES[nrow(yt.ls[[10]])]/1e3, 1),
+		round(yt.ls[[11]]$LIKES[nrow(yt.ls[[11]])]/1e3, 1),
 		round(yt.ls[[9]]$LIKES[nrow(yt.ls[[9]])]/1e3, 1),
 		round(yt.ls[[3]]$LIKES[nrow(yt.ls[[3]])]/1e3, 1),
 		round(yt.ls[[5]]$LIKES[nrow(yt.ls[[5]])]/1e3, 1),
