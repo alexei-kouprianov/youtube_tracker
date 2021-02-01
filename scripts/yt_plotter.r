@@ -19,7 +19,7 @@ for(i in 1:length(levels(yt$TITLE))){
 
 axis.1.at <- seq(
 	from = strptime("2020-12-14 00:00", "%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 00:00", "%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 00:00", "%Y-%m-%d %H:%M"),
 	by = "day")
 
 axis.base.counts <- ceiling(max(yt$COUNTS, na.rm=TRUE)/(2e6))
@@ -58,7 +58,7 @@ axis.POSIXct(1,
 
 abline(h=(0:axis.base.counts)*5*1000000,
 	v=seq(from = strptime("2020-12-14 12:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 12:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 12:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=3)
 # abline(v=seq(from = strptime("2020-12-14 06:00", format="%Y-%m-%d %H:%M"),
 # 	to = strptime("2021-01-31 06:00", format="%Y-%m-%d %H:%M"),
@@ -67,7 +67,7 @@ abline(h=(0:axis.base.counts)*5*1000000,
 # 	to = strptime("2021-01-31 18:00", format="%Y-%m-%d %H:%M"),
 # 	by = "day"), col=8, lty=3)
 abline(v=seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 00:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=5, lwd=1.5)
 
 points(
@@ -190,7 +190,7 @@ plot(
 
 abline(h=(0:axis.base.likes)*2*100000,
 	v=seq(from = strptime("2020-12-14 12:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 12:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 12:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=3)
 # abline(v=seq(from = strptime("2020-12-14 06:00", format="%Y-%m-%d %H:%M"),
 # 	to = strptime("2021-01-31 06:00", format="%Y-%m-%d %H:%M"),
@@ -199,7 +199,7 @@ abline(h=(0:axis.base.likes)*2*100000,
 # 	to = strptime("2021-01-31 18:00", format="%Y-%m-%d %H:%M"),
 # 	by = "day"), col=8, lty=3)
 abline(v=seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 00:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=5, lwd=1.5)
 
 points(
@@ -294,10 +294,10 @@ plot(
 
 abline(h=(0:axis.base.dislikes)*10000,
 	v=seq(from = strptime("2020-12-14 12:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 12:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 12:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=3)
 abline(v=seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 00:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=5, lwd=1.5)
 
 points(
@@ -605,16 +605,16 @@ ylab="Views (per 15-min. intervals)",
 axes=FALSE) 
 
 abline(v=seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 00:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=5)
 abline(v=seq(from = strptime("2020-12-14 06:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 06:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 06:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=3)
 abline(v=seq(from = strptime("2020-12-14 12:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 12:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 12:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=3)
 abline(v=seq(from = strptime("2020-12-14 18:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 18:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 18:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=3)
 
 axis.POSIXct(1,
@@ -623,7 +623,7 @@ axis.POSIXct(1,
 	las = 2)
 axis.POSIXct(1,
 	at = seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 00:00", format="%Y-%m-%d %H:%M"),
 	by = "hour"),
 	labels = FALSE,
 	tcl = -.25,
@@ -646,16 +646,16 @@ ylab="Likes (per 15-min. intervals)",
 axes=FALSE) 
 
 abline(v=seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 00:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=5)
 abline(v=seq(from = strptime("2020-12-14 06:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 06:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 06:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=3)
 abline(v=seq(from = strptime("2020-12-14 12:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 12:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 12:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=3)
 abline(v=seq(from = strptime("2020-12-14 18:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 18:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 18:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=3)
 
 axis.POSIXct(1,
@@ -664,7 +664,7 @@ axis.POSIXct(1,
 	las = 2)
 axis.POSIXct(1,
 	at = seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 00:00", format="%Y-%m-%d %H:%M"),
 	by = "hour"),
 	labels = FALSE,
 	tcl = -.25,
@@ -687,16 +687,16 @@ ylab="Dislikes (per 15-min. intervals)",
 axes=FALSE) 
 
 abline(v=seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 00:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=5)
 abline(v=seq(from = strptime("2020-12-14 06:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 06:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 06:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=3)
 abline(v=seq(from = strptime("2020-12-14 12:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 12:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 12:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=3)
 abline(v=seq(from = strptime("2020-12-14 18:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 18:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 18:00", format="%Y-%m-%d %H:%M"),
 	by = "day"), col=8, lty=3)
 
 axis.POSIXct(1,
@@ -705,7 +705,7 @@ axis.POSIXct(1,
 	las = 2)
 axis.POSIXct(1,
 	at = seq(from = strptime("2020-12-14 00:00", format="%Y-%m-%d %H:%M"),
-	to = strptime("2021-01-31 00:00", format="%Y-%m-%d %H:%M"),
+	to = strptime("2021-02-28 00:00", format="%Y-%m-%d %H:%M"),
 	by = "hour"),
 	labels = FALSE,
 	tcl = -.25,
