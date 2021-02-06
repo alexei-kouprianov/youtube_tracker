@@ -53,6 +53,7 @@ open (SRC02, '<../downloads/pages.processed.01.txt') or die $!;
 open (TGT02, '>>../downloads/pages.processed.02.txt') or die $!;
 	while (<SRC02>) {
 		s/(?<=[0-9])\xc2\xa0(?=[0-9][0-9][0-9])//g;
+		s/\&\#39\;/\xE2\x80\x99/g;
 			if($_ =~ m/^.*\<title\>(.*?)\<\/title\>.*/a){
 			print TGT02 "$now\t$1\t";
 			}
