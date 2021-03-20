@@ -730,5 +730,6 @@ axis(2)
 dev.off()
 
 print(yt.ls[[1]]$COUNTS[nrow(yt.ls[[1]])] - yt.ls[[2]]$COUNTS[nrow(yt.ls[[2]])])
-print(paste("Updated to", tail(yt.ls[[6]]$TIME, 2), "MSK;"))
+print(paste("Updated to", tail(yt.ls[[6]]$TIME, 1), "MSK;"))
+
 # source("yt_plotter.r")
