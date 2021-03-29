@@ -1,4 +1,5 @@
 # setwd("/home/tinea/Documents/H_et_S/Projects/github/youtube_tracker/scripts")
+# cd /home/tinea/Documents/H_et_S/Projects/github/youtube_tracker/scripts
 
 yt.data <- read.table("../data/youtube.txt", h=TRUE, sep="\t")
 yt.down <- read.table("../downloads/pages.processed.02.txt", sep="\t")
